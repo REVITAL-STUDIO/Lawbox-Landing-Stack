@@ -1,0 +1,35 @@
+# Python
+*.py[cod]
+__pycache__/
+
+
+# Venv
+.venv/
+.python-version
+
+
+# System
+.DS_Store
+
+
+# Pip
+*.egg-info
+dist/
+
+
+# Testing
+.pytest_cache/
+.coverage
+.aws-sam
+pycov
+
+
+# Terraform
+.terraform
+builds
+*.plan
+
+
+# DB
+migrations
+

@@ -1,0 +1,56 @@
+services: 
+  lawbox-landing-web:
+    container_name: lawbox-landing-web
+    build:
+      context: ./lawbox-landing-web
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./lawbox-landing-web:/app
+      - /app/node_modules
+    environment:
+      - BASE_API_URL=https://localhost:8000
+    networks:
+      - lawbox-landing-network
+
+  lawbox-landing-api:
+    container_name: lawbox-landing-api
+    build:
+      context: ./lawbox-landing
+    ports:
+      - "8000:8000"
+    depends_on:
+      - lawbox-landing-db
+    environment:
+      - HOST=lawbox-landing-db
+      - DB_NAME=lawbox-landing
+      - PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+    volumes:
+      - ./lawbox-landing/api:/app
+    networks:
+      - lawbox-landing-network
+
+  lawbox-landing-db:
+    container_name: lawbox-landing-db
+    image: postgres:16-alpine 
+    ports:
+      - "54320:5432"
+    environment:
+      - POSTGRES_USER=postgres 
+      - POSTGRES_PASSWORD=password 
+      - POSTGRES_DB=lawbox-landing
+    volumes:
+      - ./lawbox-landing/db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    networks:
+      - lawbox-landing-network
+
+
+volumes:
+  postgres_data:
+
+
+networks:
+  lawbox-landing-network:
+    driver: bridge
