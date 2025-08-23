@@ -1,7 +1,10 @@
 node_modules
-build
-.next
+build/
+.next/
+next/
 .git
 .env
+.env.*
+!.env.example
 out
 
