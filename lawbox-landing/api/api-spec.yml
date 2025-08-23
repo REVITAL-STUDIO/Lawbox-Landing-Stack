@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  title: Lawbox Landing API
+  description: API Spec
+  version: 1.0.0
+
+
+tags:
+  - name: health
+    description: Liveness & readiness checks
+
+
+paths:
+  /health:
+    get:
+      operationId: getAPIHealth
+      tags: [health]
+      summary: Liveness probe
+      description: Returns process status and basic runtime info.
+      responses:
+        '200':
+          description: API is alive
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+              examples:
+                ok:
+                  value:
+                    status: ok
+                    uptime_s: 12.345
+        '500':
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          enum: [ok]
+          description: Liveness status
+        uptime_s:
+          type: number
+          format: float
+          description: Seconds since process start
+    Error:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string

@@ -65,6 +65,9 @@ async def health():
     Health check endpoint.
     Returns the operational status of the API.
     """
-    return {"status": "ok", "service": "lawbox-landing-api", "version": "1.0"}
-
+    return HealthResponse(
+        status="ok",
+        service="lawbox-landing-api",
+        version="1.0",
+        )
 
