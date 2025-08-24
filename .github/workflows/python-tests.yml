@@ -4,8 +4,6 @@ on:
     branches: [ main ]
   push:
     branches: [ main ]
-  branches:
-    - main
   workflow_call:
 
 # permissions:
@@ -22,12 +20,23 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install Deps
-        run: pip install -r api/requirements.txt
+        run: pip install -r lawbox-landing/api/requirements.txt
       - name: Check for Syntax Erros
         run: pylint lawbox-landing/api --errors-only
       - name: Show Pylint Warnings
         run: pylint lawbox-landing/api --exit-zero
-  
+  validate:
+    name: Validate API Spec
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Deps
+        run: pip install openapi-spec-validator
+      - name: Validate
+        run: openapi-spec-validator lawbox-landing/api/api-spec.yml
   test:
     name: Tests
     needs:
@@ -54,6 +63,6 @@ jobs:
         run: pip install -r lawbox-landing/api/requirements.txt
       - name: Initialize DB
         run: |
-          psql postgresql://postgres:${{env.DBPW}}@${{env.HOST}}:${{env.PORT}}/lawbox-landing -f scripts/init.sql
+          psql postgresql://postgres:${{env.DBPW}}@${{env.HOST}}:${{env.PORT}}/lawbox-landing -f lawbox-landing/db/init.sql
       - name: Tests
         run: pytest --cov=api -o log_cli=true lawbox-landing/api/test
