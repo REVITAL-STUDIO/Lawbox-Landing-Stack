@@ -27,7 +27,7 @@ const features = [
 
 export default function Features() {
   return (
-    <div className="w-full text-white text-3xl flex flex-col">
+    <div className="w-full text-white  flex flex-col">
       <div
         data-scroll
         data-scroll-class="is-in"
@@ -42,13 +42,13 @@ export default function Features() {
           height={100}
           className="object-contain mx-auto mb-4 "
         />
-        <h1 className="flex flex-col text-4xl text-center">
+        <h1 className="flex flex-col w-3/4 mx-auto text-4xl text-center">
           <span className="">SMART FEATURES BUILT</span> FOR THE WAY LAWYERS
           WORK
         </h1>
       </div>
 
-      <div className="flex flex-col mt-[5rem]">
+      <div className="flex flex-col justify-center mt-[5rem]">
         {features.map((feature, index) => (
           <FeatureHighlight
             key={feature.url}

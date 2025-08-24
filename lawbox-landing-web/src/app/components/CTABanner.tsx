@@ -11,7 +11,7 @@ export default function CTABanner() {
   ];
 
   return (
-    <div className="w-full  text-white flex flex-col p-8 h-screen">
+    <div className="w-full  text-white flex flex-col p-8 xl:h-screen">
       <div
         data-scroll
         data-scroll-class="is-in"
@@ -41,7 +41,7 @@ export default function CTABanner() {
           data-scroll-class="is-in"
           data-scroll-speed="0.08"
           data-scroll-repeat
-          className="text-base mt-[2%] px-80 show"
+          className="text-base mt-[2%]  xl:px-80 show"
         >
           Transform the way your firm manages communication. Lawbox streamlines
           email organization, enhances security, and ensures you never miss
