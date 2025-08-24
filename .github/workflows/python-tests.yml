@@ -36,7 +36,7 @@ jobs:
       - name: Install Deps
         run: pip install openapi-spec-validator
       - name: Validate
-        run: openapi-spec-validator lawfbox-landing/api/api-spec.yml
+        run: openapi-spec-validator lawbox-landing/api/api-spec.yml
   test:
     name: Tests
     needs:

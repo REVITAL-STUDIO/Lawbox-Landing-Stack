@@ -4,8 +4,8 @@ from typing import List
 from psycopg2.errors import DatabaseError, UniqueViolation
 
 from fastapi import HTTPException
-import api.db.lead as db
-from api.db.client import PsycopgClient
+import db.lead as db
+from db.client import PsycopgClient
 
 logger = logging.getLogger()
 
