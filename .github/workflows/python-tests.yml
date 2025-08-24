@@ -22,9 +22,9 @@ jobs:
       - name: Install Deps
         run: pip install -r lawbox-landing/requirements.txt
       - name: Check for Syntax Erros
-        run: pylint lawbox-landing --errors-only
+        run: cd lawbox-landing && pylint api --errors-only
       - name: Show Pylint Warnings
-        run: pylint lawbox-landing --exit-zero
+        run: cd lawbox-landing && pylint api --exit-zero
   validate:
     name: Validate API Spec
     runs-on: ubuntu-latest
