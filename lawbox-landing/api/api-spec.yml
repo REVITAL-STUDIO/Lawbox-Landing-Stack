@@ -8,7 +8,8 @@ info:
 tags:
   - name: health
     description: Liveness & readiness checks
-
+  - name: leads
+    description: Endpoints for capturing and managing prospective customer leads
 
 paths:
   /health:
@@ -16,7 +17,7 @@ paths:
       operationId: getAPIHealth
       tags: [health]
       summary: Liveness probe
-      description: Returns process status and basic runtime info.
+      description: Returns process status.
       responses:
         '200':
           description: API is alive
@@ -28,14 +29,62 @@ paths:
                 ok:
                   value:
                     status: ok
-                    uptime_s: 12.345
         '500':
           description: Unexpected server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+  /leads:
+      post:
+        operationId: createLead
+        tags: [leads]
+        summary: Create a new lead
+        description: Accepts email, pain point, and firm size; returns the new lead id or an error.
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewLead'
+              examples:
+                example1:
+                  value:
+                    email: "user@example.com"
+                    pain_point: "Document review takes too long"
+                    firm_size: "small"
+        responses:
+          '201':
+            description: Lead successfully created
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CreatedLead'
+                examples:
+                  success:
+                    value:
+                      id: 123
+                      message: "Lead Successfully Created!"
+          '409':
+            description: Lead already exists
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+                examples:
+                  duplicate:
+                    value:
+                      message: "Lead already exists"
+          '500':
+            description: Database or server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+                examples:
+                  failure:
+                    value:
+                      message: "DB Error Creating Lead"
 
 components:
   schemas:
@@ -57,3 +106,26 @@ components:
       properties:
         message:
           type: string
+    NewLead:
+      type: object
+      required: [email]
+      properties:
+        email:
+          type: string
+          format: email
+        pain_point:
+          type: string
+          nullable: true
+        firm_size:
+          type: string
+          nullable: true
+    CreatedLead:
+      type: object
+      required: [id, message]
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the lead
+        message:
+          type: string
+          description: Confirmation message

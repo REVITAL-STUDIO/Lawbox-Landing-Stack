@@ -1,5 +1,5 @@
 from enum import Enum, StrEnum
-from pydantic import BaseModel 
+from pydantic import BaseModel, EmailStr
 from typing import Any, Dict, List, Optional, Literal
 
 class BasicResponse(BaseModel):
@@ -10,3 +10,21 @@ class HealthResponse(BaseModel):
     status: Literal["ok"]
     service: str
     version: str
+
+class FirmSize(StrEnum):
+    SOLO = "solo"         # 1
+    SMALL = "small"       # 2–10
+    MEDIUM = "medium"     # 11–50
+    LARGE = "large"       # 51–250
+    ENTERPRISE = "enterprise"  # 250+
+
+class NewLead(BaseModel):
+    email: EmailStr
+    pain_point: Optional[str] = None
+    firm_size: Optional[FirmSize] = None
+
+
+class CreatedLead(BaseModel):
+    id: int
+    message: str = "Lead Successfully Created!"
+
