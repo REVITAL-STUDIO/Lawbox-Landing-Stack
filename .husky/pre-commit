@@ -1,5 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
 echo '[Husky] pre-commit hook...'
 
@@ -10,7 +9,7 @@ has_ts_js() { printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx)$' >/dev
 has_py()    { printf '%s\n' "$STAGED_FILES" | grep -E '\.py$' >/dev/null; }
 
 if has_ts_js; then
-  echo "Running Prettier + ESLint on staged TS/JS files..."
+  echo "Running Prettier + ESLint on staged TS/JS..."
   printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx)$' | xargs -r npx prettier --write --ignore-unknown
   printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx)$' | xargs -r npx eslint --fix
   git update-index --again
