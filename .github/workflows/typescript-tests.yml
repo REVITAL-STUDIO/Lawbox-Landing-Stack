@@ -1,0 +1,37 @@
+name: Check Typescript
+run-name: Checking formatting, linting, and typescript errors 🤖🔎
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  check:
+    name: Check Typescript Code
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lawbox-landing-web
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'lawbox-landing-web/package-lock.json'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Lint (check only)
+        run: npm run lint
+
+      - name: Check for typescript errors
+        run: npm run tsc
