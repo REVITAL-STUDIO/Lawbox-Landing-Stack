@@ -1,6 +1,6 @@
 "use client";
 import gsap from "gsap";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 
 export default function Electric() {

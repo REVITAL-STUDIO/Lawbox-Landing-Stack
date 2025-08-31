@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "LawBox | Legal Inbox",
-  description: "Organize, secure, and streamline your legal inbox effortlessly.",
+  description:
+    "Organize, secure, and streamline your legal inbox effortlessly.",
 };
 
 export default function RootLayout({

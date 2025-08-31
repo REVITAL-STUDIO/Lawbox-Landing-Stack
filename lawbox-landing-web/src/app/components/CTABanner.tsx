@@ -1,15 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function CTABanner() {
-  const steps = [
-    "Automatically sorts emails by case/matter",
-    "Advanced search archiving",
-    "Safe window protection for spam",
-    "Seamless Outlook integration",
-    "Ensures confidentiality compliance",
-  ];
-
   return (
     <div className="w-full  text-white flex flex-col p-8 xl:h-screen">
       <div
@@ -33,7 +24,7 @@ export default function CTABanner() {
           data-scroll-repeat
           className="text-4xl uppercase tracking-widest show"
         >
-          Revolutionize Your Law Firm's Inbox
+          Revolutionize Your Law Firm&apos;s Inbox
           <br />— Securely and Efficiently
         </h3>
         <p
@@ -41,12 +32,12 @@ export default function CTABanner() {
           data-scroll-class="is-in"
           data-scroll-speed="0.08"
           data-scroll-repeat
-          className="text-base mt-[2%]  xl:px-80 show"
+          className="text-base mt-[2%]  xl:px-80 show leading-6"
         >
-          Transform the way your firm manages communication. Lawbox streamlines
-          email organization, enhances security, and ensures you never miss
-          critical case details. Say goodbye to inbox chaos and hello to
-          smarter, faster, and more secure workflows.
+          Transform the way your firm manages email. Lawbox organizes case
+          correspondence automatically, flags critical deadlines, and protects
+          sensitive client data. No more missed filings or inbox chaos — just
+          faster, safer workflows built for attorneys.
         </p>
       </div>
       <div className="relative pb-8 pl-24 max-w-6xl mt-[6%]"></div>

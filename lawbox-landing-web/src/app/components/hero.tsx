@@ -1,6 +1,5 @@
 import Image from "next/image";
 import gsap from "gsap";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 export default function Hero() {
@@ -18,7 +17,7 @@ export default function Hero() {
           duration: 0.75,
           ease: "power1.in",
           delay: 0.5,
-        }
+        },
       );
 
       gsap.fromTo(
@@ -30,7 +29,7 @@ export default function Hero() {
           duration: 0.7,
           ease: "power2.in",
           stagger: 0.1,
-        }
+        },
       );
     }, scope);
 
