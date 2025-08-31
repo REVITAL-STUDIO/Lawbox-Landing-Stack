@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 type FeatureHighlightProps = {
   highlightURL: string;
@@ -35,7 +34,7 @@ export default function FeatureHighlight({
             <h2 className="mt-8 xl:mt-0 xl:text-3xl text-2xl w-3/4 mx-auto xl:mx-0">
               {header}
             </h2>
-            <p className="text-base mt-16 leading-4">{text}</p>
+            <p className="text-base mt-16 leading-8">{text}</p>
           </div>
         </div>
       </div>

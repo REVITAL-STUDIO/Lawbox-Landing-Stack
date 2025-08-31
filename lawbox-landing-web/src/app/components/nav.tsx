@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Waitlist from "./Waitlist";
 import Contact from "./Contact";
 
@@ -47,7 +47,7 @@ export default function Nav() {
           onClick={openWaitList}
           className="uppercase px-6 py-3 h-fit bg-black cursor-pointer rounded-full shadow-lg [filter:drop-shadow(0_0_8px_#FF5E00)]"
         >
-          Join Waitlist
+          Reserve your spot
         </button>
         <button
           onClick={openContactPage}

@@ -11,6 +11,7 @@ import Electric from "./components/electric";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import { useEffect, useRef } from "react";
+import Footer from "./components/footer";
 
 const pathwayExtreme = Pathway_Extreme({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function Home() {
         <Features />
         <Banner />
         <Faq />
+        <Footer />
       </main>
     </section>
   );

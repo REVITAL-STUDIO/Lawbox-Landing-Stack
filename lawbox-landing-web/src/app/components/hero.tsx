@@ -1,6 +1,5 @@
 import Image from "next/image";
 import gsap from "gsap";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 export default function Hero() {

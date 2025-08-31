@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Waitlist({
   wait,
@@ -9,6 +9,25 @@ export default function Waitlist({
   wait: boolean;
   openList: () => void;
 }) {
+  const [mail, setMail] = useState<string | null>(null);
+
+  async function submitWaitList(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const email = String(
+      new FormData(e.currentTarget).get("email") || ""
+    ).trim();
+    const res = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+    setMail(res.ok ? "Thanks for Joining!" : "Error Occured. Try Again.");
+    console.log(data);
+  }
+
   useEffect(() => {
     if (wait) {
       document.body.style.overflow = "hidden";
@@ -57,10 +76,14 @@ export default function Waitlist({
         <p className="text-center text-[#cfcfcf]">
           Get early access before launch.
         </p>
-        <form className="mt-8 max-w-2xl py-4 border border-white/50 rounded-full flex items-center ">
+        <form
+          onSubmit={submitWaitList}
+          className="mt-8 max-w-2xl py-4 border border-white/50 rounded-full flex items-center "
+        >
           <input
+            name="email"
             type="email"
-            placeholder="Enter your email"
+            placeholder="Email"
             className="flex-1 px-4 placeholder:text-sm w-3/4  bg-transparent text-white placeholder-gray-400 focus:outline-none"
             required
           />{" "}
@@ -71,6 +94,9 @@ export default function Waitlist({
             Join Waitlist
           </button>
         </form>
+        {mail && (
+          <p className="mt-8 mx-auto text-sm text-center text-white">{mail}</p>
+        )}
       </div>
     </section>
   );
