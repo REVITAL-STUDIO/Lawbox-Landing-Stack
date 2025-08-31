@@ -1,26 +1,26 @@
 #!/bin/sh
-echo '[Husky] running commit-msg hook...'
+. "$(dirname "$0")/_/husky.sh"
 
+echo '[Husky] commit-msg hook...'
 
-COMMIT_MSG_FILE=$1
-BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
+COMMIT_MSG_FILE="$1"
+PROJECT_KEY="LB"
+BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
 
-if echo "$BRANCH_NAME" | grep -q 'OB-[0-9]\+'; then
-  echo 'Branch name is valid, continuing..'
-else 
-  echo 
-  echo '[ERROR] Branch name is invalid!'
-  echo 'Please name your branch with the Jira ticket number: VA-##/my-ticket-description'
-  echo 'Valid branch namings - Eg : OB-21 or OB-29/fix-css'
-  echo
-  echo 'Note : To bypass the husky hooks by commiting with the --no-verify flag - git commit -m "<msg>" --no-verify'
-  echo 
+# Validate branch name: must contain e.g. LB-123
+if printf '%s' "$BRANCH_NAME" | grep -Eq "^${PROJECT_KEY}-[0-9]+(/|$)"; then
+  echo "Branch name OK: $BRANCH_NAME"
+else
+  printf "\n[ERROR] Branch name is invalid!\n"
+  printf "Please name your branch with the Jira ticket number: %s-<num>/short-description\n" "$PROJECT_KEY"
+  printf "Examples: %s-21 or %s-29/fix-css\n\n" "$PROJECT_KEY" "$PROJECT_KEY"
+  printf "Tip: bypass with --no-verify if needed: git commit -m 'msg' --no-verify\n\n"
   exit 1
 fi
 
-# e.g. OB-29
-JIRA_ISSUE_NUMBER=$(git branch | grep '*' | sed 's/* //' | sed 's#/.*##')
+JIRA_ISSUE_NUMBER="$(printf '%s' "$BRANCH_NAME" | sed 's#/.*##')"
 
-echo "Jira issue: $JIRA_ISSUE_NUMBER"
-
-echo "\n\nJira issue: $JIRA_ISSUE_NUMBER" >> $COMMIT_MSG_FILE
+# Append once if not already in commit message
+if ! grep -q "Jira issue: ${JIRA_ISSUE_NUMBER}" "$COMMIT_MSG_FILE"; then
+  printf "\n\nJira issue: %s\n" "$JIRA_ISSUE_NUMBER" >> "$COMMIT_MSG_FILE"
+fi
