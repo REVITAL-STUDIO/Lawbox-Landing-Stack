@@ -24,7 +24,7 @@ export default function Nav() {
       gsap.fromTo(
         ".nav",
         { opacity: 0 },
-        { opacity: 1, duration: 0.6, ease: "power1.in", z: 100 }
+        { opacity: 1, duration: 0.6, ease: "power1.in", z: 100 },
       );
     });
 

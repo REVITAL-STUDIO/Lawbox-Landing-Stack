@@ -15,7 +15,7 @@ export default function Waitlist({
     e.preventDefault();
 
     const email = String(
-      new FormData(e.currentTarget).get("email") || ""
+      new FormData(e.currentTarget).get("email") || "",
     ).trim();
     const res = await fetch("/api/subscribe", {
       method: "POST",
