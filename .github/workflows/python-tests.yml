@@ -39,8 +39,8 @@ jobs:
         run: openapi-spec-validator lawbox-landing/api/api-spec.yml
   test:
     name: Tests
-    needs:
-      - lint
+    # needs:
+    #   - lint
     runs-on: ubuntu-latest
     env:
       HOST: localhost
