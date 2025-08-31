@@ -21,6 +21,9 @@ jobs:
           python-version: "3.11"
       - name: Install Deps
         run: pip install -r lawbox-landing/requirements.txt
+      - name: Set PYTHONPATH for pylint
+        # This adds the main server directory to Python's search path.
+        run: echo "PYTHONPATH=$GITHUB_WORKSPACE/lawbox-landing" >> $GITHUB_ENV
       - name: Check for Syntax Erros
         run: cd lawbox-landing && pylint api --errors-only
       - name: Show Pylint Warnings
