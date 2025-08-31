@@ -1,0 +1,26 @@
+#!/bin/sh
+echo '[Husky] running commit-msg hook...'
+
+
+COMMIT_MSG_FILE=$1
+BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
+
+if echo "$BRANCH_NAME" | grep -q 'OB-[0-9]\+'; then
+  echo 'Branch name is valid, continuing..'
+else 
+  echo 
+  echo '[ERROR] Branch name is invalid!'
+  echo 'Please name your branch with the Jira ticket number: VA-##/my-ticket-description'
+  echo 'Valid branch namings - Eg : OB-21 or OB-29/fix-css'
+  echo
+  echo 'Note : To bypass the husky hooks by commiting with the --no-verify flag - git commit -m "<msg>" --no-verify'
+  echo 
+  exit 1
+fi
+
+# e.g. OB-29
+JIRA_ISSUE_NUMBER=$(git branch | grep '*' | sed 's/* //' | sed 's#/.*##')
+
+echo "Jira issue: $JIRA_ISSUE_NUMBER"
+
+echo "\n\nJira issue: $JIRA_ISSUE_NUMBER" >> $COMMIT_MSG_FILE
