@@ -33,7 +33,7 @@ export default function Waitlist({
   return (
     <section
       onClick={openList}
-      className={`fixed inset-0 z-[99999] bg-black/65 h-screen w-full backdrop-blur-3xl flex items-center justify-center transition-opacity duration-300
+      className={`fixed inset-0 z-[99999] bg-black/65 h-screen w-full backdrop-blur-3xl flex items-center justify-center transition-opacity duration-300 px-2
         ${
           wait
             ? "opacity-100 pointer-events-auto"
@@ -42,7 +42,7 @@ export default function Waitlist({
     >
       <div
         onClick={(e) => e.stopPropagation()} // <-- stops bubbling here
-        className=" rounded-2xl max-w-4xl p-8 mx-auto shadow-xl border border-white/25"
+        className=" rounded-2xl max-w-3xl p-8 mx-auto shadow-xl border border-white/25"
       >
         <Image
           src="/logo-white.png"
@@ -61,7 +61,7 @@ export default function Waitlist({
           <input
             type="email"
             placeholder="Enter your email"
-            className="flex-1 px-4 placeholder:text-sm  bg-transparent text-white placeholder-gray-400 focus:outline-none"
+            className="flex-1 px-4 placeholder:text-sm w-3/4  bg-transparent text-white placeholder-gray-400 focus:outline-none"
             required
           />{" "}
           <button

@@ -40,9 +40,9 @@ export default function Hero() {
   return (
     <section
       ref={scope}
-      className="tracking-widest min-h-screen  flex flex-col p-8 "
+      className="tracking-widest min-h-screen  flex flex-col justify-center items-center xl:px-8 "
     >
-      <div className="text-white mt-[6%] mb-[2%]  text-center -z-10">
+      <div className="text-white mt-[6%] mb-[2%]  text-center -z-10 px-8">
         <h1
           data-scroll
           data-scroll-speed="0.08"
@@ -64,7 +64,7 @@ export default function Hero() {
         data-scroll
         data-scroll-speed="0.5"
         data-scroll-repeat
-        className="w-3/4 h-[600px] relative overflow-hidden mb-[5%] mx-auto -z-10"
+        className="xl:w-3/4 w-full h-[600px] relative xl:overflow-hidden overflow mb-[5%] mx-auto -z-10"
       >
         <Image
           src="/email.png"

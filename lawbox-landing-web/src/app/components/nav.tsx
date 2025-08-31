@@ -32,7 +32,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <section className="nav flex justify-between pt-8 px-8 ">
+    <section className="nav flex items-center justify-between pt-8 px-8 ">
       <Link href="/" className="z-40 w-fit h-fit ">
         <Image
           src="/lawbox.png"
@@ -51,7 +51,8 @@ export default function Nav() {
         </button>
         <button
           onClick={openContactPage}
-          className="text-black uppercase px-6 py-3 h-fit cursor-pointer bg-white rounded-full shadow-lg [filter:drop-shadow(0_0_8px_#FF5E00)]"
+          className="text-black uppercase px-6 py-3 h-fit cursor-pointer bg-white rounded-full shadow-lg hidden xl:block
+           [filter:drop-shadow(0_0_8px_#FF5E00)]"
         >
           Contact Us
         </button>

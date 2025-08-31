@@ -1,7 +1,7 @@
 import logging
 from psycopg2 import sql
 from psycopg2 import DatabaseError
-from api.db.client import PsycopgClient
+from db.client import PsycopgClient
 from typing import Optional
 logger = logging.getLogger()
 

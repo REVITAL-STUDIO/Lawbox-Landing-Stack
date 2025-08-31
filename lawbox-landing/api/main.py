@@ -4,8 +4,8 @@ import requests
 from fastapi import BackgroundTasks, FastAPI, HTTPException, Request, Response, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.logger import logger as fastapi_logger
-from api.controllers.LeadController import LeadController
-from api.models import *
+from controllers.LeadController import LeadController
+from models import *
 import logging
 import asyncio
 from db.client import PsycopgClient

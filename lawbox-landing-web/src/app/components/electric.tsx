@@ -52,7 +52,7 @@ export default function Electric() {
   }, []);
 
   return (
-    <section className="fixed inset-0  ">
+    <section className="fixed inset-0 h-[100svh] w-[100svw] ">
       {Array.from({ length: 15 }).map((_, i) => (
         <div
           key={i}
@@ -61,10 +61,11 @@ export default function Electric() {
       ))}
       <svg
         ref={svgRef}
-        className="w-full h-full"
+        className="w-full h-full absolute top-0"
         width="3845"
         height="2000"
         viewBox="0 0 3845 2000"
+        preserveAspectRatio="none"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
