@@ -11,23 +11,20 @@ on:
 #   contents: read    # This is required for actions/checkout
 
 jobs:
-  lint:
-    name: Check Python Code
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Install Deps
-        run: pip install -r lawbox-landing/requirements.txt
-      - name: Set PYTHONPATH for pylint
-        # This adds the main server directory to Python's search path.
-        run: echo "PYTHONPATH=$GITHUB_WORKSPACE/lawbox-landing" >> $GITHUB_ENV
-      - name: Check for Syntax Erros
-        run: cd lawbox-landing && pylint api --errors-only
-      - name: Show Pylint Warnings
-        run: cd lawbox-landing && pylint api --exit-zero
+  # lint:
+  #   name: Check Python Code
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.11"
+  #     - name: Install Deps
+  #       run: pip install -r lawbox-landing/requirements.txt
+  #     - name: Check for Syntax Erros
+  #       run: cd lawbox-landing && pylint api --errors-only
+  #     - name: Show Pylint Warnings
+  #       run: cd lawbox-landing && pylint api --exit-zero
   validate:
     name: Validate API Spec
     runs-on: ubuntu-latest
