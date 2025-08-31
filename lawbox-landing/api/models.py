@@ -1,5 +1,5 @@
 from enum import Enum, StrEnum
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr # pylint: disable=no-name-in-module
 from typing import Any, Dict, List, Optional, Literal
 
 class BasicResponse(BaseModel):

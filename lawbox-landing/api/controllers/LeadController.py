@@ -1,7 +1,7 @@
 import logging
 from typing import List
 
-from psycopg2.errors import DatabaseError, UniqueViolation
+from psycopg2.errors import DatabaseError, UniqueViolation # pylint: disable=no-name-in-module
 
 from fastapi import HTTPException
 import db.lead as db
