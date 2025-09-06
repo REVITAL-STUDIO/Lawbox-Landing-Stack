@@ -45,13 +45,13 @@ export default function Nav() {
       <div className="flex text-white gap-x-8 text-xs">
         <button
           onClick={openWaitList}
-          className="uppercase px-6 py-3 h-fit bg-black cursor-pointer rounded-full shadow-lg [filter:drop-shadow(0_0_8px_#FF5E00)]"
+          className="uppercase px-6 py-3 h-fit bg-black cursor-pointer text-sm rounded-full shadow-lg [filter:drop-shadow(0_0_8px_#FF5E00)]"
         >
           Reserve your spot
         </button>
         <button
           onClick={openContactPage}
-          className="text-black uppercase px-6 py-3 h-fit cursor-pointer bg-white rounded-full shadow-lg hidden xl:block
+          className="text-black uppercase px-6 py-3 h-fit cursor-pointer text-sm bg-white rounded-full shadow-lg hidden xl:block
            [filter:drop-shadow(0_0_8px_#FF5E00)]"
         >
           Contact Us
