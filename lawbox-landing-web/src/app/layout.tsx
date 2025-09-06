@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LawBox | Legal Inbox",
+  title: "case0 | Legal Inbox",
   description:
     "Organize, secure, and streamline your legal inbox effortlessly.",
 };
