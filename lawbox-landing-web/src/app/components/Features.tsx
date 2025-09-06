@@ -15,12 +15,12 @@ const features = [
   {
     url: "/notifications.png",
     header: "Never miss a deadline",
-    text: "Smart reminders flag critical filings and opposing counsel updates. Lawbox ensures you never overlook a deadline hidden in your inbox.",
+    text: "Smart reminders flag critical filings and opposing counsel updates. case0 ensures you never overlook a deadline hidden in your inbox.",
   },
   {
     url: "/attorney.png",
     header: "Cut admin overload",
-    text: "From client follow-ups to scheduling and invoice reminders, Lawbox drafts the routine responses so you can review and send in seconds—saving hours every week.",
+    text: "From client follow-ups to scheduling and invoice reminders, case0 drafts the routine responses so you can review and send in seconds—saving hours every week.",
   },
 ];
 

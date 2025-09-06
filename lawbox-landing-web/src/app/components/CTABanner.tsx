@@ -34,7 +34,8 @@ export default function CTABanner() {
           data-scroll-repeat
           className="text-base mt-[2%]  xl:px-80 show leading-6"
         >
-          Transform the way your firm manages email. Lawbox organizes case
+          Transform the way your firm manages email.{" "}
+          <span className="font-medium text-lg">case0</span> organizes case
           correspondence automatically, flags critical deadlines, and protects
           sensitive client data. No more missed filings or inbox chaos — just
           faster, safer workflows built for attorneys.

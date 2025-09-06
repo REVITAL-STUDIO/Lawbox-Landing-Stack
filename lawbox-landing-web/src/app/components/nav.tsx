@@ -24,7 +24,7 @@ export default function Nav() {
       gsap.fromTo(
         ".nav",
         { opacity: 0 },
-        { opacity: 1, duration: 0.6, ease: "power1.in", z: 100 },
+        { opacity: 1, duration: 0.6, ease: "power1.in", z: 100 }
       );
     });
 
@@ -35,7 +35,7 @@ export default function Nav() {
     <section className="nav flex items-center justify-between pt-8 px-8 ">
       <Link href="/" className="z-40 w-fit h-fit ">
         <Image
-          src="/lawbox.png"
+          src="/case0.png"
           alt="lawbox"
           width={100}
           height={100}
