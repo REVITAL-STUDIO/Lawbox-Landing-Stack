@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CTABanner() {
   return (
-    <div className="w-full  text-white flex flex-col xl:p-8 xl:h-screen">
+    <div className="w-full  text-white flex flex-col xl:p-8 p-4 xl:h-screen">
       <div
         data-scroll
         data-scroll-class="is-in"
@@ -22,7 +22,7 @@ export default function CTABanner() {
           data-scroll-class="is-in"
           data-scroll-speed="0.05"
           data-scroll-repeat
-          className="xl:text-4xl text-2xl w-full uppercase tracking-widest show"
+          className="xl:text-4xl text-2xl w-full uppercase tracking-widest show "
         >
           Revolutionize Your Law Firm&apos;s Inbox
           <br />— Securely and Efficiently
@@ -32,7 +32,7 @@ export default function CTABanner() {
           data-scroll-class="is-in"
           data-scroll-speed="0.08"
           data-scroll-repeat
-          className="text-base mt-[2%]  xl:px-80 show leading-6 p-4"
+          className="text-base mt-[2%]  xl:px-80 show leading-6 "
         >
           Transform the way your firm manages email.{" "}
           <span className="font-medium text-lg">case0</span> organizes case
