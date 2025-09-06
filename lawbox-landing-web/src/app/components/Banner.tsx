@@ -34,19 +34,12 @@ export default function Banner() {
             data-scroll-class="is-in"
             className="xl:text-base mt-[2%]  text-center text-sm show leading-6"
           >
-            We come from the world of complex, unforgiving software — and we saw
-            how little attention was being paid to the tools lawyers rely on
-            every day. Attorneys spend hours trapped in their inboxes, juggling
-            deadlines, case details, and client communication with tools never
-            designed for the realities of legal work. The result? Chaos, wasted
-            time, and real risk. We&apos;re software engineers who saw that gap
-            and decided to fix it.{" "}
-            <span className="font-medium text-lg">case0</span> is our answer: an
-            inbox that organizes itself by case, flags critical filings, and
-            brings clarity without forcing lawyers to learn a new system.
-            We&apos;re starting with a private beta, and we&apos;re looking for
-            forward-thinking firms who want to shape the future of how attorneys
-            manage email. Join the waitlist to be among the first to try it.
+            Lawyers spend hours lost in inboxes, juggling deadlines and client
+            communications with tools never built for legal work. We&apos;re
+            engineers who saw that gap and built Case0: an inbox that organizes
+            itself by case, flags critical filings, and brings clarity without
+            adding complexity. We&apos;re starting with a private beta — join
+            the waitlist to help shape the future of legal email.
           </p>
         </div>
       </div>

@@ -46,7 +46,7 @@ export default function Hero() {
           data-scroll
           data-scroll-speed="0.08"
           data-scroll-repeat
-          className="text-3xl xl:text-6xl uppercase opacity-0 relative flex justify-center items-center reveal mt-8"
+          className="text-3xl md:text-6xl uppercase opacity-0 relative flex justify-center items-center reveal mt-8"
         >
           Supercharge your inbox{" "}
         </h1>
@@ -63,13 +63,13 @@ export default function Hero() {
         data-scroll
         data-scroll-speed="0.5"
         data-scroll-repeat
-        className="xl:w-3/4 w-full h-[600px] relative xl:overflow-hidden overflow mb-[5%] mx-auto -z-10"
+        className="xl:w-3/4 h-[375px] md:h-[600px] w-full relative xl:overflow-hidden overflow mb-[5%] mx-auto -z-10"
       >
         <Image
           src="/email.png"
           alt="Lawbox Email Plugin"
           fill
-          className="absolute opacity-0 email object-cover [filter:drop-shadow(0_0_20px_#FF5E00)] inset-0 "
+          className="absolute opacity-0 email object-cover  border [filter:drop-shadow(0_0_20px_#FF5E00)] inset-0 "
         />
       </div>
     </section>

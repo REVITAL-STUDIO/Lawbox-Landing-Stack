@@ -41,7 +41,7 @@ export default function Features() {
           height={100}
           className="object-contain mx-auto mb-4 "
         />
-        <h1 className="flex flex-col xl:w-full w-3/4 mx-auto text-4xl text-center">
+        <h1 className="flex flex-col w-full  mx-auto text-2xl xl:text-4xl text-center">
           <span className="">SMART FEATURES BUILT</span> FOR THE WAY LAWYERS
           WORK
         </h1>

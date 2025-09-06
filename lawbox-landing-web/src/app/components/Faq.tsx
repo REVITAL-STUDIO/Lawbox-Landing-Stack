@@ -38,7 +38,7 @@ export default function FAQ() {
 
   return (
     <div className="w-full text-white p-8 z-50">
-      <h2 className="text-4xl mt-[8%] mb-[4%] text-center">
+      <h2 className="xl:text-4xl text-2xl mt-[8%] mb-[4%] text-center">
         Frequently Asked Questions
       </h2>
       <div className="max-w-3xl mx-auto p-4">
