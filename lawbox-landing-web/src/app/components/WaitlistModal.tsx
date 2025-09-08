@@ -1,7 +1,8 @@
 'use client'
 import { useCreateLead } from '@/api/api'
+import { useModalLock } from '@/app/hooks/useModalLock'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const firmSizeOptions = [
   { value: 'solo', label: 'Solo Practice' },
@@ -21,6 +22,8 @@ export default function WaitlistModal({
   const [painPoint, setPainPoint] = useState('')
   const [firmSize, setFirmSize] = useState('')
   const [message, setMessage] = useState<string | null>(null)
+
+  useModalLock(wait)
 
   const createLeadMutation = useCreateLead({
     mutation: {
@@ -51,27 +54,6 @@ export default function WaitlistModal({
       },
     })
   }
-
-  useEffect(() => {
-    if (wait) {
-      document.body.style.overflow = 'hidden'
-      document.body.style.height = '100vh'
-      document.documentElement.style.overflow = 'hidden'
-      document.documentElement.style.height = '100vh'
-    } else {
-      document.body.style.overflow = ''
-      document.body.style.height = ''
-      document.documentElement.style.overflow = ''
-      document.documentElement.style.height = ''
-    }
-
-    return () => {
-      document.body.style.overflow = ''
-      document.body.style.height = ''
-      document.documentElement.style.overflow = ''
-      document.documentElement.style.height = ''
-    }
-  }, [wait])
 
   return (
     <section
@@ -113,7 +95,6 @@ export default function WaitlistModal({
               required
             />
           </div>
-
           {/* Pain Point Field */}
           <div className="space-y-2">
             <textarea
@@ -124,7 +105,6 @@ export default function WaitlistModal({
               className="w-full px-4 py-3 bg-transparent text-white placeholder-gray-400 border border-white/50 rounded-2xl focus:outline-none focus:border-[#FF5E00] transition-colors resize-none"
             />
           </div>
-
           {/* Firm Size Field */}
           <div className="space-y-2">
             <select
@@ -146,7 +126,6 @@ export default function WaitlistModal({
               ))}
             </select>
           </div>
-
           {/* Submit Button */}
           <button
             type="submit"
@@ -156,7 +135,6 @@ export default function WaitlistModal({
             {createLeadMutation.isPending ? 'Joining...' : 'Join Waitlist'}
           </button>
         </form>
-
         {message && (
           <p className="mt-4 md:mt-6 mx-auto text-sm text-center text-white">
             {message}
