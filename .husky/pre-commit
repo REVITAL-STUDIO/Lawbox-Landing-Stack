@@ -5,12 +5,12 @@ echo '[Husky] pre-commit hook...'
 STAGED_FILES="$(git diff --cached --name-only --diff-filter=ACMR)"
 [ -z "$STAGED_FILES" ] && echo "No staged files." && exit 0
 
-has_ts_js() { printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx|mjs)$' >/dev/null; }
+has_ts_js_css() { printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx|mjs|css|scss|less)$' >/dev/null; }
 has_py()    { printf '%s\n' "$STAGED_FILES" | grep -E '\.py$' >/dev/null; }
 
 if has_ts_js; then
-  echo "Running Prettier + ESLint on staged TS/JS..."
-  printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx|mjs)$' | xargs -r npx prettier --write --ignore-unknown
+  echo "Running Prettier + ESLint on staged TS/JS and CSS..."
+  printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx|mjs|css|scss|less)$' | xargs -r npx prettier --write --ignore-unknown
   printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx|mjs)$' | xargs -r npx eslint --fix
   git update-index --again
 fi
