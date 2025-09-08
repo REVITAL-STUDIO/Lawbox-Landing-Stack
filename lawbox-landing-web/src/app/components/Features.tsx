@@ -1,28 +1,28 @@
-import Image from "next/image";
-import FeatureHighlight from "./FeatureHighlight";
+import Image from 'next/image'
+import FeatureHighlight from './FeatureHighlight'
 
 const features = [
   {
-    url: "/copilot.png",
-    header: "Lost in email threads?",
-    text: "Your AI legal assistant inside Outlook. Summarize long chains, draft quick responses, and pull key facts like dates or deadlines instantly. Stop scrolling—Copilot highlights what matters in seconds.",
+    url: '/copilot.png',
+    header: 'Lost in email threads?',
+    text: 'Your AI legal assistant inside Outlook. Summarize long chains, draft quick responses, and pull key facts like dates or deadlines instantly. Stop scrolling—Copilot highlights what matters in seconds.',
   },
   {
-    url: "/cases.png",
-    header: "Handle inbox chaos",
-    text: "Detects case names, clients, and matter numbers automatically, filing emails into the right folder. Your inbox stays organized by case—without you lifting a finger.",
+    url: '/cases.png',
+    header: 'Handle inbox chaos',
+    text: 'Detects case names, clients, and matter numbers automatically, filing emails into the right folder. Your inbox stays organized by case—without you lifting a finger.',
   },
   {
-    url: "/notifications.png",
-    header: "Never miss a deadline",
-    text: "Smart reminders flag critical filings and opposing counsel updates. case0 ensures you never overlook a deadline hidden in your inbox.",
+    url: '/notifications.png',
+    header: 'Never miss a deadline',
+    text: 'Smart reminders flag critical filings and opposing counsel updates. case0 ensures you never overlook a deadline hidden in your inbox.',
   },
   {
-    url: "/attorney.png",
-    header: "Cut admin overload",
-    text: "From client follow-ups to scheduling and invoice reminders, case0 drafts the routine responses so you can review and send in seconds—saving hours every week.",
+    url: '/attorney.png',
+    header: 'Cut admin overload',
+    text: 'From client follow-ups to scheduling and invoice reminders, case0 drafts the routine responses so you can review and send in seconds—saving hours every week.',
   },
-];
+]
 
 export default function Features() {
   return (
@@ -58,5 +58,5 @@ export default function Features() {
         ))}
       </div>
     </div>
-  );
+  )
 }

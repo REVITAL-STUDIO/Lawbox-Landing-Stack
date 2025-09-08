@@ -1,34 +1,34 @@
-"use client";
-import gsap from "gsap";
-import { useEffect, useRef } from "react";
-import MotionPathPlugin from "gsap/MotionPathPlugin";
+'use client'
+import gsap from 'gsap'
+import MotionPathPlugin from 'gsap/MotionPathPlugin'
+import { useEffect, useRef } from 'react'
 
 export default function Electric() {
-  const svgRef = useRef<SVGSVGElement | null>(null);
+  const svgRef = useRef<SVGSVGElement | null>(null)
 
   useEffect(() => {
-    gsap.registerPlugin(MotionPathPlugin);
-    const svg = svgRef.current;
-    if (!svg) return;
+    gsap.registerPlugin(MotionPathPlugin)
+    const svg = svgRef.current
+    if (!svg) return
 
-    const paths = Array.from(svg.getElementsByTagName("path"));
-    const rects = gsap.utils.toArray<HTMLElement>(".rect");
-    const pick = (i: number) => paths[i % paths.length];
+    const paths = Array.from(svg.getElementsByTagName('path'))
+    const rects = gsap.utils.toArray<HTMLElement>('.rect')
+    const pick = (i: number) => paths[i % paths.length]
     const easePool = [
-      "sine.inOut",
-      "power1.inOut",
-      "power2.inOut",
-      "back.inOut(1.2)",
-    ];
+      'sine.inOut',
+      'power1.inOut',
+      'power2.inOut',
+      'back.inOut(1.2)',
+    ]
 
     rects.forEach((el, i) => {
-      const p = pick(i);
+      const p = pick(i)
 
       // different motion per element (but all start now)
-      const duration = gsap.utils.random(3, 7);
-      const start = gsap.utils.random(0, 0.6);
-      const end = Math.min(1, start + gsap.utils.random(0.3, 0.7));
-      const ease = easePool[i % easePool.length];
+      const duration = gsap.utils.random(3, 7)
+      const start = gsap.utils.random(0, 0.6)
+      const end = Math.min(1, start + gsap.utils.random(0.3, 0.7))
+      const ease = easePool[i % easePool.length]
 
       gsap.to(el, {
         duration,
@@ -45,11 +45,11 @@ export default function Electric() {
           start,
           end,
         } as MotionPath.Vars,
-      });
-    });
+      })
+    })
 
-    return () => gsap.killTweensOf(".rect");
-  }, []);
+    return () => gsap.killTweensOf('.rect')
+  }, [])
 
   return (
     <section className="fixed inset-0 h-[100svh] w-[100svw] ">
@@ -86,5 +86,5 @@ export default function Electric() {
         <path d="M0 1750H3844.5" stroke="#C5C5C5" strokeOpacity="0.25" />
       </svg>
     </section>
-  );
+  )
 }

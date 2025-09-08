@@ -1,53 +1,53 @@
-"use client";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+'use client'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
 
 export default function Waitlist({
   wait,
   openList,
 }: {
-  wait: boolean;
-  openList: () => void;
+  wait: boolean
+  openList: () => void
 }) {
-  const [mail, setMail] = useState<string | null>(null);
+  const [mail, setMail] = useState<string | null>(null)
 
   async function submitWaitList(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+    e.preventDefault()
 
     const email = String(
-      new FormData(e.currentTarget).get("email") || "",
-    ).trim();
-    const res = await fetch("/api/subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      new FormData(e.currentTarget).get('email') || '',
+    ).trim()
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
-    });
+    })
 
-    const data = await res.json();
-    setMail(res.ok ? "Thanks for Joining!" : "Error Occured. Try Again.");
-    console.log(data);
+    const data = await res.json()
+    setMail(res.ok ? 'Thanks for Joining!' : 'Error Occured. Try Again.')
+    console.log(data)
   }
 
   useEffect(() => {
     if (wait) {
-      document.body.style.overflow = "hidden";
-      document.body.style.height = "100vh";
-      document.documentElement.style.overflow = "hidden";
-      document.documentElement.style.height = "100vh";
+      document.body.style.overflow = 'hidden'
+      document.body.style.height = '100vh'
+      document.documentElement.style.overflow = 'hidden'
+      document.documentElement.style.height = '100vh'
     } else {
-      document.body.style.overflow = "";
-      document.body.style.height = "";
-      document.documentElement.style.overflow = "";
-      document.documentElement.style.height = "";
+      document.body.style.overflow = ''
+      document.body.style.height = ''
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.height = ''
     }
 
     return () => {
-      document.body.style.overflow = "";
-      document.body.style.height = "";
-      document.documentElement.style.overflow = "";
-      document.documentElement.style.height = "";
-    };
-  }, [wait]);
+      document.body.style.overflow = ''
+      document.body.style.height = ''
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.height = ''
+    }
+  }, [wait])
 
   return (
     <section
@@ -55,8 +55,8 @@ export default function Waitlist({
       className={`fixed inset-0 z-[99999] bg-black/65 h-screen w-full backdrop-blur-3xl flex items-center justify-center transition-opacity duration-300 px-2
         ${
           wait
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+            ? 'opacity-100 pointer-events-auto'
+            : 'opacity-0 pointer-events-none'
         }`}
     >
       <div
@@ -86,7 +86,7 @@ export default function Waitlist({
             placeholder="Email"
             className="flex-1 px-4 placeholder:text-sm w-3/4  bg-transparent text-white placeholder-gray-400 focus:outline-none"
             required
-          />{" "}
+          />{' '}
           <button
             type="submit"
             className=" px-4 py-2 z-50 text-black text-sm mr-4 bg-white rounded-full hover:bg-[#FF5E00] hover:text-white transition-colors cursor-pointer duration-300"
@@ -99,5 +99,5 @@ export default function Waitlist({
         )}
       </div>
     </section>
-  );
+  )
 }

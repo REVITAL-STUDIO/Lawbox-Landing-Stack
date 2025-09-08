@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function CTABanner() {
   return (
@@ -34,7 +34,7 @@ export default function CTABanner() {
           data-scroll-repeat
           className="text-base mt-[2%]  xl:px-80 show leading-6 "
         >
-          Transform the way your firm manages email.{" "}
+          Transform the way your firm manages email.{' '}
           <span className="font-medium text-lg">case0</span> organizes case
           correspondence automatically, flags critical deadlines, and protects
           sensitive client data. No more missed filings or inbox chaos — just
@@ -43,5 +43,5 @@ export default function CTABanner() {
       </div>
       <div className="relative pb-8 pl-24 max-w-6xl mt-[6%]"></div>
     </div>
-  );
+  )
 }

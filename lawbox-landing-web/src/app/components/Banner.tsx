@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function Banner() {
   return (
@@ -44,5 +44,5 @@ export default function Banner() {
         </div>
       </div>
     </div>
-  );
+  )
 }

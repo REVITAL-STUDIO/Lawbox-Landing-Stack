@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 type FeatureHighlightProps = {
-  highlightURL: string;
-  header: string;
-  text: string;
-};
+  highlightURL: string
+  header: string
+  text: string
+}
 
 export default function FeatureHighlight({
   highlightURL,
@@ -39,5 +39,5 @@ export default function FeatureHighlight({
         </div>
       </div>
     </>
-  );
+  )
 }

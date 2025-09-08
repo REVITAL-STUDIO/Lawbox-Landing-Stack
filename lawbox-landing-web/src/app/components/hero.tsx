@@ -1,40 +1,40 @@
-import Image from "next/image";
-import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import gsap from 'gsap'
+import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 
 export default function Hero() {
-  const scope = useRef<HTMLDivElement | null>(null);
+  const scope = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // image pop-in
       gsap.fromTo(
-        ".email",
+        '.email',
         { opacity: 0, y: 200 },
         {
           opacity: 1,
           y: 0,
           duration: 0.75,
-          ease: "power1.in",
+          ease: 'power1.in',
           delay: 0.5,
-        }
-      );
+        },
+      )
 
       gsap.fromTo(
-        ".reveal",
+        '.reveal',
         { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
           duration: 0.7,
-          ease: "power2.in",
+          ease: 'power2.in',
           stagger: 0.1,
-        }
-      );
-    }, scope);
+        },
+      )
+    }, scope)
 
-    return () => ctx.revert(); // clean up on unmount
-  }, []);
+    return () => ctx.revert() // clean up on unmount
+  }, [])
 
   return (
     <section
@@ -48,7 +48,7 @@ export default function Hero() {
           data-scroll-repeat
           className="text-3xl md:text-6xl uppercase opacity-0 relative flex justify-center items-center reveal mt-8"
         >
-          Supercharge your inbox{" "}
+          Supercharge your inbox{' '}
         </h1>
         <p
           data-scroll
@@ -73,5 +73,5 @@ export default function Hero() {
         />
       </div>
     </section>
-  );
+  )
 }

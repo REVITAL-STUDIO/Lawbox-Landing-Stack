@@ -1,34 +1,34 @@
-"use client";
+'use client'
 
-import Nav from "./components/nav";
-import Hero from "./components/hero";
-import Faq from "./components/Faq";
-import Banner from "./components/Banner";
-import { Pathway_Extreme } from "next/font/google";
-import Features from "./components/Features";
-import CTABanner from "./components/CTABanner";
-import Electric from "./components/electric";
-import LocomotiveScroll from "locomotive-scroll";
-import "locomotive-scroll/dist/locomotive-scroll.css";
-import { useEffect, useRef } from "react";
-import Footer from "./components/footer";
+import LocomotiveScroll from 'locomotive-scroll'
+import 'locomotive-scroll/dist/locomotive-scroll.css'
+import { Pathway_Extreme } from 'next/font/google'
+import { useEffect, useRef } from 'react'
+import Banner from './components/Banner'
+import CTABanner from './components/CTABanner'
+import Electric from './components/electric'
+import Faq from './components/Faq'
+import Features from './components/Features'
+import Footer from './components/footer'
+import Hero from './components/hero'
+import Nav from './components/nav'
 
 const pathwayExtreme = Pathway_Extreme({
-  subsets: ["latin"],
-  weight: ["100", "400", "500", "600"],
-});
+  subsets: ['latin'],
+  weight: ['100', '400', '500', '600'],
+})
 
 export default function Home() {
-  const containerRef = useRef<HTMLElement | null>(null);
+  const containerRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current) return
 
     // v5: no `el`, no `smooth` option
-    const scroll = new LocomotiveScroll();
+    const scroll = new LocomotiveScroll()
 
-    return () => scroll.destroy();
-  }, []);
+    return () => scroll.destroy()
+  }, [])
 
   return (
     <section
@@ -46,5 +46,5 @@ export default function Home() {
         <Footer />
       </main>
     </section>
-  );
+  )
 }

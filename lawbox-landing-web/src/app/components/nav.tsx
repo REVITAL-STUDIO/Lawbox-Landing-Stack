@@ -1,35 +1,35 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import gsap from "gsap";
-import { useEffect, useState } from "react";
-import Waitlist from "./Waitlist";
-import Contact from "./Contact";
+import gsap from 'gsap'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import Contact from './Contact'
+import Waitlist from './Waitlist'
 
 export default function Nav() {
-  const [wait, setWait] = useState(false);
-  const [contact, setContact] = useState(false);
+  const [wait, setWait] = useState(false)
+  const [contact, setContact] = useState(false)
 
   const openWaitList = () => {
-    setWait((e) => !e);
-  };
+    setWait((e) => !e)
+  }
 
   const openContactPage = () => {
-    setContact((e) => !e);
-  };
+    setContact((e) => !e)
+  }
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        ".nav",
+        '.nav',
         { opacity: 0 },
-        { opacity: 1, duration: 0.6, ease: "power1.in", z: 100 }
-      );
-    });
+        { opacity: 1, duration: 0.6, ease: 'power1.in', z: 100 },
+      )
+    })
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section className="nav flex items-center justify-between pt-8 px-8 ">
@@ -61,5 +61,5 @@ export default function Nav() {
       <Waitlist wait={wait} openList={openWaitList} />
       <Contact contact={contact} openContact={openContactPage} />
     </section>
-  );
+  )
 }
