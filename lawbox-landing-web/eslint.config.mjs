@@ -20,7 +20,7 @@ const eslintConfig = [
       '@typescript-eslint/no-unused-vars': 'warn',
       'no-unused-vars': 'off',
       '@next/next/no-img-element': 'off',
-      '@next/next/no-html-link-for-pages': 'off', 
+      '@next/next/no-html-link-for-pages': 'off',
       '@typescript-eslint/ban-ts-comment': [
         'error',
         { 'ts-ignore': 'allow-with-description' },
