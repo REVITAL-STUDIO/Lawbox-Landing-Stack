@@ -1,0 +1,30 @@
+#!/bin/sh
+
+echo '[Husky] pre-commit hook...'
+
+STAGED_FILES="$(git diff --cached --name-only --diff-filter=ACMR)"
+[ -z "$STAGED_FILES" ] && echo "No staged files." && exit 0
+
+has_ts_js() { printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx)$' >/dev/null; }
+has_py()    { printf '%s\n' "$STAGED_FILES" | grep -E '\.py$' >/dev/null; }
+
+if has_ts_js; then
+  echo "Running Prettier + ESLint on staged TS/JS..."
+  printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx)$' | xargs -r npx prettier --write --ignore-unknown
+  printf '%s\n' "$STAGED_FILES" | grep -E '\.(ts|tsx|js|jsx)$' | xargs -r npx eslint --fix
+  git update-index --again
+fi
+
+if has_py; then
+  if command -v black >/dev/null 2>&1; then
+    echo "Running black..."
+    printf '%s\n' "$STAGED_FILES" | grep -E '\.py$' | xargs -r black
+    git update-index --again
+  fi
+  if command -v pylint >/dev/null 2>&1; then
+    echo "Running pylint (errors only)..."
+    printf '%s\n' "$STAGED_FILES" | grep -E '\.py$' | xargs -r pylint --errors-only
+  fi
+fi
+
+echo '[Husky] pre-commit done.'
