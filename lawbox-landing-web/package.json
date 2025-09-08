@@ -15,6 +15,7 @@
     "gen": "orval --config ./orval/orval.config.js"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.87.1",
     "axios": "^1.11.0",
     "gsap": "^3.13.0",
     "locomotive-scroll": "^5.0.0-beta.21",
