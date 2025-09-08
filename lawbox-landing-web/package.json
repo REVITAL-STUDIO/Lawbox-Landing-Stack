@@ -11,7 +11,7 @@
     "lint": "npx eslint 'src/**/*.{js,ts,jsx,tsx}' --ignore-pattern 'src/api/*'",
     "lint:fix": "npx eslint 'src/**/*.{js,ts,jsx,tsx}' --ignore-pattern 'src/api/*' --fix",
     "tsc": "tsc --noEmit",
-    "prepare": "husky",
+    "prepare": "is-ci || husky",
     "gen": "orval --config ./orval/orval.config.js"
   },
   "dependencies": {
@@ -33,10 +33,11 @@
     "@typescript-eslint/parser": "^8.41.0",
     "eslint": "^9.34.0",
     "eslint-config-next": "^15.3.2",
-    "orval": "^7.11.2",
-    "prettier-plugin-organize-imports": "^4.2.0",
     "eslint-config-prettier": "^10.1.8",
+    "is-ci": "^4.1.0",
+    "orval": "^7.11.2",
     "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.2.0",
     "tailwindcss": "^4",
     "typescript": "^5.9.2"
   }
