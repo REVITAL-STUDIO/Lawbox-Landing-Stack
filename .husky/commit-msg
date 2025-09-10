@@ -3,7 +3,7 @@
 echo '[Husky] commit-msg hook...'
 
 COMMIT_MSG_FILE="$1"
-PROJECT_KEY="LB"
+PROJECT_KEY="C0"
 BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
 
 # Skip branch name validation for main/master/develop branches
@@ -14,7 +14,7 @@ case "$BRANCH_NAME" in
     ;;
 esac
 
-# Validate branch name: LB-<digits>[optional /suffix]
+# Validate branch name: C0-<digits>[optional /suffix]
 case "$BRANCH_NAME" in
   ${PROJECT_KEY}-[0-9]*|${PROJECT_KEY}-[0-9]*/*) echo "Branch name OK: $BRANCH_NAME" ;;
   *)

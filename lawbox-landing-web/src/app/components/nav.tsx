@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Contact from './Contact'
-import Waitlist from './Waitlist'
+import WaitlistModal from './WaitlistModal'
 
 export default function Nav() {
   const [wait, setWait] = useState(false)
@@ -58,7 +58,7 @@ export default function Nav() {
         </button>
       </div>
 
-      <Waitlist wait={wait} openList={openWaitList} />
+      <WaitlistModal wait={wait} openList={openWaitList} />
       <Contact contact={contact} openContact={openContactPage} />
     </section>
   )

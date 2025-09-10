@@ -1,10 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import 'dotenv/config'
 
 // See: https://orval.dev/guides/custom-axios
 
 export const AXIOS_INSTANCE = axios.create({
-  baseURL: process.env.API_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000',
 })
 
 export const axiosInstance = <T>(
